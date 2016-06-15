@@ -11,6 +11,8 @@
  * Class MyFrame1
  */
 
+require_once "db_class.php";
+
 class MyFrame1 extends wxFrame {
 	
 	function __construct( $parent=null ){
@@ -240,11 +242,28 @@ class MyFrame1 extends wxFrame {
 		$this->m_statusBar4 = $this->CreateStatusBar( 1, wxST_SIZEGRIP, wxID_ANY );
 		
 		$this->Centre( wxBOTH );
+	// Connect Events
+		$this->product_update->Connect( wxEVT_COMMAND_BUTTON_CLICKED, array($this, "buttonClickUpdate") );
+		$this->Connect( wxEVT_ACTIVATE, array($this, "main_frame_activate") );
+
 	}
 	
 	
 	function __destruct( ){
 	}
+	
+	
+	// Virtual event handlers, overide them in your derived class
+	function buttonClickUpdate( $event ){
+		$event->Skip();
+	}
+
+		// Virtual event handlers, overide them in your derived class
+	function main_frame_activate( $event ){
+		$event->Skip();
+	}
+	
+
 	
 }
 
