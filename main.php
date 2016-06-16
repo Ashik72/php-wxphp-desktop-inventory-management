@@ -31,7 +31,6 @@ class MyApp extends wxApp
   }
 }
 
-require_once "event_actions.php";
 
 
 $app = new MyApp();
