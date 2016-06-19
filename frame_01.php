@@ -11,8 +11,6 @@
  * Class MyFrame1
  */
 
-require_once "db_class.php";
-require_once "event_actions.php";
 
 class MyFrame1 extends wxFrame {
 	
@@ -257,6 +255,7 @@ class MyFrame1 extends wxFrame {
 	// Virtual event handlers, overide them in your derived class
 	function buttonClickUpdate( $event ){
 		$event->Skip();
+
 	}
 
 		// Virtual event handlers, overide them in your derived class

@@ -11,15 +11,16 @@
  * Class MyFrame3
  */
 
-require_once "frame_01.php";
+//require_once "frame_01.php";
 
+require_once "event_actions.php";
 
 
 class MyApp extends wxApp 
 {
   function OnInit()
   {
-    $this->mf = new MyFrame1();
+    $this->mf = new event_frame01();
     $this->mf->Show();
 
     return 0;

@@ -129,8 +129,7 @@ class DB_Ops extends the_db_opener
 
 }
 
-$db_ops = new DB_Ops();
-var_dump($db_ops);
+//var_dump($db_ops);
 
 
 //var_dump($db_ops->query_sql_select("SELECT * FROM general_info;"));
