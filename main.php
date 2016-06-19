@@ -13,14 +13,17 @@
 
 //require_once "frame_01.php";
 
-require_once "event_actions.php";
+//require_once "event_actions.php";
+
+require_once "home_events.php";
 
 
 class MyApp extends wxApp 
 {
   function OnInit()
   {
-    $this->mf = new event_frame01();
+    //$this->mf = new event_frame01(10);
+    $this->mf = new homeExtend();
     $this->mf->Show();
 
     return 0;
