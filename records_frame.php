@@ -14,7 +14,7 @@
 class records_Frame extends wxFrame {
 	
 	function __construct( $parent=null ){
-		parent::__construct ( $parent, wxID_ANY, wxEmptyString, wxDefaultPosition, new wxSize( 1497,512 ), wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		parent::__construct ( $parent, wxID_ANY, wxEmptyString, wxDefaultPosition, new wxSize( 1750,512 ), wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		
 		$this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 		
@@ -31,8 +31,8 @@ class records_Frame extends wxFrame {
 		$this->m_grid2 = new wxGrid( $this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 		
 		# Grid
-		$this->m_grid2->CreateGrid( 5, 15 );
-		$this->m_grid2->EnableEditing( false );
+		$this->m_grid2->CreateGrid( 0, 17 );
+		$this->m_grid2->EnableEditing( true );
 		$this->m_grid2->EnableGridLines( true );
 		$this->m_grid2->EnableDragGridSize( false );
 		$this->m_grid2->SetMargins( 0, 0 );
@@ -53,6 +53,9 @@ class records_Frame extends wxFrame {
 		$this->m_grid2->SetColSize( 12, 62 );
 		$this->m_grid2->SetColSize( 13, 74 );
 		$this->m_grid2->SetColSize( 14, 111 );
+		$this->m_grid2->SetColSize( 15, 116 );
+		$this->m_grid2->SetColSize( 16, 121 );
+
 		$this->m_grid2->EnableDragColMove( false );
 		$this->m_grid2->EnableDragColSize( true );
 		$this->m_grid2->SetColLabelSize( 30 );
@@ -71,8 +74,8 @@ class records_Frame extends wxFrame {
 		$this->m_grid2->SetColLabelValue( 12, "ADV" );
 		$this->m_grid2->SetColLabelValue( 13, "Adv DATE" );
 		$this->m_grid2->SetColLabelValue( 14, "Product Delivered" );
-		$this->m_grid2->SetColLabelValue( 15, "CUSTOMER NAME" );
-		$this->m_grid2->SetColLabelValue( 16, "CUSTOMER NAME" );
+		$this->m_grid2->SetColLabelValue( 15, "Edit" );
+		$this->m_grid2->SetColLabelValue( 16, "Delete" );
 		$this->m_grid2->SetColLabelValue( 17, wxEmptyString );
 		$this->m_grid2->SetColLabelValue( 18, wxEmptyString );
 		$this->m_grid2->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
@@ -98,6 +101,7 @@ class records_Frame extends wxFrame {
 		$this->Centre( wxBOTH );
 		
 		// Connect Events
+		$this->Connect( wxEVT_ACTIVATE, array($this, "records_frame_activate") );
 		$this->m_grid2->Connect( wxEVT_GRID_CELL_LEFT_DCLICK, array($this, "leftDClickCell") );
 		$this->m_grid2->Connect( wxEVT_GRID_SELECT_CELL, array($this, "gridSelectCellEvent") );
 	}
@@ -108,6 +112,10 @@ class records_Frame extends wxFrame {
 	
 	
 	// Virtual event handlers, overide them in your derived class
+	function records_frame_activate( $event ){
+		$event->Skip();
+	}	
+
 	function leftDClickCell( $event ){
 		$event->Skip();
 	}
