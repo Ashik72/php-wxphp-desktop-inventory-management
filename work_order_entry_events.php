@@ -62,7 +62,7 @@ $this->work_order_record_status->SetLabel("");
 	$this->work_order_record_val->SetLabel(count($count_records));
 
 
-	var_dump($insert_db);
+	//var_dump($insert_db);
 
 //var_dump($work_order_vals);
 

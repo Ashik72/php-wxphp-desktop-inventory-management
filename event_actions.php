@@ -136,6 +136,8 @@ class event_frame01 extends MyFrame1
 	}
 
 
+
+
 			
 			$date_txt_val = $this->the_db->escapeString($this->date_txt_val->GetValue());
 			$product_id_val1 = (int) $this->the_db->escapeString($this->product_id_val1->GetValue());
@@ -157,6 +159,15 @@ class event_frame01 extends MyFrame1
 			$product_delivered_opt = $this->the_db->escapeString($this->product_delivered_opt->GetString($this->product_delivered_opt->GetSelection()));
 
 			$rate_val = $this->the_db->escapeString($this->rate_val->GetValue());
+
+			if (empty($shop_code_val) || empty($unit_of_measurement)) {
+
+
+				$this->m_statusBar4->SetStatusText($this->errors['shop_code_or_uom']);
+				
+				return;
+			}
+
 
 	$insert_entry = $this->the_db->query_sql_insert("INSERT INTO `general_info`(`id`,`shop_code`,`book_number`,`work_order_number`,`date`,`customer_name`,`customer_address`,`customer_phone_number`,`description_of_goods`,`quantity`,`unit_of_mesurement`,`rate`,`amount`,`adv`,`adv_date`,`product_delivered`) VALUES (null,'{$shop_code_val}','{$book_number_val}',{$product_id_val1},'{$date_txt_val}','{$customer_name_val}','{$cust_address_val}','{$cust_ph_number_val}','{$desc_goods_val}','{$quan_val}','{$unit_of_measurement}','{$rate_val}','{$amount_val}','{$adv_val}','{$adv_date_txt_val}','{$product_delivered_opt}');");
 

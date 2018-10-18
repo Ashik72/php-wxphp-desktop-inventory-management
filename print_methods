@@ -1,0 +1,33 @@
+wxphp main.php
+array(15) {
+  [0]=>
+  string(8) "GetAbort"
+  [1]=>
+  string(12) "GetLastError"
+  [2]=>
+  string(18) "GetPrintDialogData"
+  [3]=>
+  string(11) "PrintMethod"
+  [4]=>
+  string(11) "PrintDialog"
+  [5]=>
+  string(11) "ReportError"
+  [6]=>
+  string(5) "Setup"
+  [7]=>
+  string(11) "__construct"
+  [8]=>
+  string(7) "UnShare"
+  [9]=>
+  string(5) "UnRef"
+  [10]=>
+  string(8) "IsSameAs"
+  [11]=>
+  string(3) "Ref"
+  [12]=>
+  string(12) "GetClassInfo"
+  [13]=>
+  string(8) "IsKindOf"
+  [14]=>
+  string(5) "__get"
+}

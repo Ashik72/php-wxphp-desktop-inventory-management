@@ -9,6 +9,11 @@ require_once "records_frame.php";
 
 require_once "records_frame_events.php";
 
+require_once "printing.php";
+
+require_once "generate_pdf.php";
+
+require_once "csv_frame_events.php";
 
 /**
 * Home Extended
@@ -20,6 +25,7 @@ class homeExtend extends homeFrame
 	{
 		parent::__construct();
 
+		$this->print = new localPrinter;
 
 		return;
 
@@ -45,6 +51,30 @@ class homeExtend extends homeFrame
 
 		return;
 
+	}
+
+	function exit_window( $event ){
+		$event->Skip();
+	
+		parent::Close();
+
+		return;
+
+	}
+
+	function print_records( $event ){
+		$event->Skip();
+
+
+	$theCSV = new csvGenerator("abcd.csv");
+	
+	$this->csv_frame = new FRMAE_CSV_Events($theCSV);
+    $this->csv_frame->Show();
+
+
+		
+
+		return $result;
 	}
 
 

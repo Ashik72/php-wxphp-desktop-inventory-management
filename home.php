@@ -33,6 +33,23 @@ class homeFrame extends wxFrame {
 		
 		$bSizer5->Add( $fgSizer22, 0, wxALIGN_CENTER|wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 		
+
+		$fgSizer221 = new wxFlexGridSizer( 0, 2, 0, 0 );
+		$fgSizer221->SetFlexibleDirection( wxBOTH );
+		$fgSizer221->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+		
+		$this->print_records = new wxButton( $this, wxID_ANY, "Print Records", wxDefaultPosition, new wxSize( 200,75 ), 0 );
+		$fgSizer221->Add( $this->print_records, 0, wxALL, 5 );
+		
+		$this->exit = new wxButton( $this, wxID_ANY, "Exit!", wxDefaultPosition, new wxSize( 200,75 ), 0 );
+		$fgSizer221->Add( $this->exit, 0, wxALL, 5 );
+		
+		
+		$bSizer5->Add( $fgSizer221, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+		
+		
+		$this->SetSizer( $bSizer5 );
+
 		
 		$this->SetSizer( $bSizer5 );
 		$this->Layout();
@@ -48,6 +65,12 @@ class homeFrame extends wxFrame {
 		$this->view_records->Connect( wxEVT_ENTER_WINDOW, array($this, "mouse_enter_view") );
 		$this->view_records->Connect( wxEVT_LEAVE_WINDOW, array($this, "mouse_leave_view") );
 		$this->m_statusBar1->Connect( wxEVT_ENTER_WINDOW, array($this, "enter_info_box") );
+
+		$this->print_records->Connect( wxEVT_COMMAND_BUTTON_CLICKED, array($this, "print_records") );
+
+		$this->exit->Connect( wxEVT_COMMAND_BUTTON_CLICKED, array($this, "exit_window") );
+
+
 	}
 	
 	
@@ -60,6 +83,10 @@ class homeFrame extends wxFrame {
 		$event->Skip();
 	}
 	
+	function print_records( $event ){
+		$event->Skip();
+	}
+
 	function mouse_enter_add( $event ){
 		$event->Skip();
 	}

@@ -26,6 +26,9 @@ class MyApp extends wxApp
     $this->mf = new homeExtend();
     $this->mf->Show();
 
+
+    var_dump(class_exists('wxSQLite3'));
+
     return 0;
   }
 
